@@ -24,7 +24,7 @@ AHWrapper::~AHWrapper() {
   close_serial();
 }
 
-int AHWrapper::connect(const char* port) {
+int AHWrapper::connect() {
   start_time = std::chrono::steady_clock::now();
   if (autoconnect_serial(baud_rate)) {
     return 1; // Could not connect
