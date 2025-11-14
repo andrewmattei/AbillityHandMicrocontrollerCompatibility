@@ -62,10 +62,10 @@ void loop() {
       Serial.print(cmd[i]);
       Serial.print(" ");
     }
-
-    wrapper.read_write_once(cmd, POSITION, 0);
     Serial.println();
   }
+
+  wrapper.read_write_once(cmd, POSITION, 0);
 
 }
 
