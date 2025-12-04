@@ -20,6 +20,17 @@ Before you begin, ensure you have the following software installed on your syste
 
 ---
 
+## 🔌 Hardware Connection
+
+The serial connection from the Teensy 4.0 to the hand occurs over **`Serial1`**.
+
+Please connect the following pins from the Teensy to the Ability Hand breakout board:
+* **Teensy `GND`** &rarr; **Hand Breakout `GND`**
+* **Teensy `Pin 0` (RX1)** &rarr; **Hand Breakout `SCL`**
+* **Teensy `Pin 1` (TX1)** &rarr; **Hand Breakout `SDA`**
+
+---
+
 ## 🚀 How to Build and Upload
 
 Follow these steps to get the project running on your own microcontroller.
