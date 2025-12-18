@@ -1,0 +1,6 @@
+pyserial
+numpy
+serial==0.0.97
+future==1.0.0
+iso8601==2.1.0
+pyyaml==6.0.3
