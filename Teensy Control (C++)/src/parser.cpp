@@ -38,6 +38,7 @@ int parse_packet(uint8_t *data, const uint16_t &packet_size, Hand &hand,
       ++offset;
     }
 
+    hand.update_sensor_forces();
     std::memcpy(&hot_cold, data + offset, 1);
     return 0;
 
@@ -67,6 +68,7 @@ int parse_packet(uint8_t *data, const uint16_t &packet_size, Hand &hand,
     }
 
     std::memcpy(&hot_cold, data + offset, 1);
+    hand.update_sensor_forces();
     return 0;
 
   case 2:

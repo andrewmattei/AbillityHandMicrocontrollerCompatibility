@@ -30,7 +30,8 @@ int read_until(uint8_t *stuffed_buffer, uint8_t *buffer,
       return -1;
     }
 
-    int result = read_serial(stuffed_buffer + bytes_read, MAX_READ_SIZE);
+    uint16_t max_read = MAX_READ_SIZE;
+    int result = read_serial(stuffed_buffer + bytes_read, max_read);
 
     for (uint16_t i = bytes_read; i < result + bytes_read; ++i) {
       uint16_t size = unstuffer.unstuff_byte(stuffed_buffer[i]);

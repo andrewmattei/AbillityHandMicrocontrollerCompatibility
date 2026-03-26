@@ -10,4 +10,12 @@ public:
   std::array<float, 6> cur;
   std::array<uint16_t, 30> fsr;
   const uint8_t address;
+
+float forces[30]; 
+
+void update_sensor_forces();
+
+private:
+    const float C1 = 121591.0f; 
+    const float C2 = 0.878894f;
 };

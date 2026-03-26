@@ -24,27 +24,13 @@ int serial_write(uint8_t *data, uint16_t &size) {
 }
 
 int read_serial(uint8_t *readbuf, uint16_t &bufsize) {
-  if (!HAND_SERIAL) {
-    return -1;
-  }
+    if (!HAND_SERIAL) return -1;
 
-  int bytes_available = HAND_SERIAL.available();
-  if (bytes_available == 0) {
-    return 0;
-  }
+    int bytes_available = HAND_SERIAL.available();
+    if (bytes_available <= 0) return 0;
 
-  uint16_t bytes_to_read = bytes_available;
-  if (bytes_to_read > bufsize) {
-    bytes_to_read = bufsize;
-  }
-
-  int bytes_read = 0;
-  for (int i = 0; i < bytes_to_read; i++) {
-    readbuf[i] = (uint8_t)HAND_SERIAL.read();
-    bytes_read++;
-  }
-
-  return bytes_read;
+    size_t to_read = (bytes_available > bufsize) ? bufsize : bytes_available;
+    return HAND_SERIAL.readBytes(readbuf, to_read);
 }
 
 void close_serial(void) {
